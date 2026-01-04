@@ -34,10 +34,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Convert target column to binary numeric (has to be numeric for to_ndarray).
     df.apply("quality", quality_into_num)
         .expect("Failed to convert column.");
+
+    // Get rid of nulls if present.
     df = df
         .lazy()
         .drop_nulls(None)
         .collect()?;
+
+    // Inspect DataFrame
     println!("{:?}", df.head(Some(10)));
 
     // Convert Polars df to ndarrays 
