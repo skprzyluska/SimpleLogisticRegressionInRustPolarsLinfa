@@ -1,0 +1,10 @@
+[package]
+name = "polars_linfa_log_regression"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+polars = { version = "0.52.0", features = ["full"] }
+linfa = "0.8.1"
+linfa-logistic = "0.8.1"
+
